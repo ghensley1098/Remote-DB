@@ -1,0 +1,12 @@
+[Unit]
+Description=Monitoring API Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/gmhensley26/monitoring_agent/monitoring_api.py
+Restart=always
+User=gmhensley26
+Group=monitoring_group
+
+[Install]
+WantedBy=multi-user.target

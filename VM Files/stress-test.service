@@ -1,0 +1,25 @@
+[Unit]
+Description=Stress Test Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/gmhensley26/stress_test.sh
+WorkingDirectory=/home/gmhensley26
+Restart=always
+User=gmhensley26    
+
+[Install]
+WantedBy=multi-user.target 
+
+[Unit]
+Description=Stress Test Service
+After=network.target
+
+[Service]
+ExecStart=/home/gmhensley26/stress_test.sh
+Restart=always
+User=gmhensley26
+
+[Install]
+WantedBy=multi-user.target
