@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 import psutil
 import os
+import time
 
 app = Flask(__name__)
 
@@ -35,6 +36,8 @@ def get_metrics():
 
 @app.route('/metrics', methods=['GET'])
 def metrics():
+    with open('/tmp/api_log_pipe', 'w') as pipe:
+        pipe.write(f"{time.ctime()}: Metrics requested\n")
     return jsonify(get_metrics())
 
 if __name__ == "__main__":
